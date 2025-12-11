@@ -34,4 +34,6 @@ class Softmax:
         return self.out
 
     def backward(self, grad):
+        # Cuando usamos CrossEntropyLoss con softmax, el grad que llega ya es (y_hat - y)/N,
+        # por tanto Softmax sólo debe propagar ese grad directamente.
         return grad
